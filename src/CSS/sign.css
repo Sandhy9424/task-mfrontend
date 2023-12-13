@@ -1,0 +1,27 @@
+.sign{
+    margin:26%;
+    height: inherit;
+    margin-top: 10%;
+    text-align: start;
+
+}
+h1{
+    color: white;
+}
+.sign input{
+    display: block;
+    width: 50%;
+    height: 28px;
+    margin: 2%;
+    margin-left: 0%;
+    background: black;
+}
+.sign button{
+    width: 23%;
+    height: 26px;
+    margin: 1%;
+    margin-left: 0%;
+    background: black;
+    color: wheat;
+    margin-right: 78%;
+}

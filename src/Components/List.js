@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react"
-import UserContext from "./userContext";
+import UserContext from "../Provider/userContext";
 
 
 function List(props){
@@ -54,7 +54,7 @@ async function drag(event){
        console.log(event,taskdi,listdi,props.dragData.dragData)
  }
 function drop(e){
-   let listid=e.target.children[0].innerText;
+   let listid=e.target.parentNode.children[0].innerText;
    console.log(listid);
    axios.put(`https://sandhy9424-task-mbackend.onrender.com/updatetask?listId=${listid}&taskId=${props.dragData.dragData.taskdi}`).then(()=>{
     axios(`https://sandhy9424-task-mbackend.onrender.com/gettaskbylistid?listId=${props.dragData.dragData.listdi}`).then((res)=>{props.dragData.dragData.sett(res.data[0].tasks); console.log(res)}).catch((err)=>console.log("erraa",err)) 
@@ -78,7 +78,7 @@ function dragover(e){
                 <p style={{display:"none"}}>{e.id}</p>
                 <input onChange={deleteTask} type="checkbox"></input>
          <p>{e.name}</p></div>)})}</div>
-        <div> <svg  onClick={addTask} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+        <div className="add-t"> <svg  onClick={addTask} xmlns="http://www.w3.org/2000/svg" width="30" height="30" color="white" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
          <path onClick={addTask1} d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
           </svg><input type="text" placeholder="add-task"></input></div>
             

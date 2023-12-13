@@ -1,6 +1,6 @@
 
 import { useNavigate } from "react-router";
-import "./sign.css";
+import "../CSS/sign.css";
 import axios from "axios";
 function SignUp(){
     
@@ -34,7 +34,7 @@ function SignUp(){
         }
     }
     return(
-        <div id="signupid" className="sign-up">
+        <div id="signupid" className="sign">
 
             <h1 >Signup</h1>
             <form onSubmit={signUp}>

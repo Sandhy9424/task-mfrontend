@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import List from "./List";
-import userContext from "./userContext";
+import userContext from "../Provider/userContext";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
@@ -31,7 +31,7 @@ function addList(){
 console.log(list);
     return (
         <div className="temp">
-            <div className="navv"><h1>Welcome User</h1> <h1 onClick={()=>navigate("/")}>Log out</h1> </div>
+            <div className="navv"><h1>Welcome {user.user.name}</h1> <h1 onClick={()=>navigate("/")} className="log-out">Log out</h1> </div>
             <div className="temp1">
             <div className="listdiv">
                 {list.map((element) =><List dragData={{dragData:dragData,
@@ -40,7 +40,7 @@ console.log(list);
             </div>
             <div className="add-list" onClick={addList}>
                     <p>Create New List</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" color="white" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
 </svg>
             </div>

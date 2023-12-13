@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import "./sign.css";
+import "../CSS/sign.css";
 import { useNavigate} from "react-router-dom";
 import axios from "axios"
-import userContext from "./userContext";
+import userContext from "../Provider/userContext";
 function SignIn(){
   
   const navigate= useNavigate();
@@ -21,7 +21,7 @@ function SignIn(){
     console.log(user.user);
     }
     return(
-        <div id="loginDiv" class="sign-up">
+        <div id="loginDiv" class="sign">
           <h1>Login</h1>
           <form>
           <input required id="logEmail" type="email" name="email" placeholder="Enter Email" />
